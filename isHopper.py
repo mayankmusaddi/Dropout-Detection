@@ -48,11 +48,14 @@ for line in lines:
 # In an ideal world, you should try to stay at each job for a minimum of two years, according to Amanda Augustine, career advice expert for TopResume.
 badexp = [x for x in exp if x < 24]
 
-if len(exp) > 1 and max(exp) < 24 :
-	isHopper = 3 # Is a serial job hopper
-if len(exp) > 4 and len(badexp) > 2:
-	isHopper = 2 # Has high tendency for hopping
-if len(exp) <= 1 and max(exp) < 24:
-	isHopper = 1 # Can be a hopper
+if len(exp) is 0:
+	isHopper = -1 # Unable to Detect
+else:
+	if len(exp) > 1 and max(exp) < 24 :
+		isHopper = 3 # Is a serial job hopper
+	if len(exp) > 4 and len(badexp) > 2:
+		isHopper = 2 # Has high tendency for hopping
+	if len(exp) <= 1 and max(exp) < 24:
+		isHopper = 1 # Can be a hopper
 
 print("Job Hopping Tendency (JHT): ",isHopper)
